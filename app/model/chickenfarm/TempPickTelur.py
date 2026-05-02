@@ -1,6 +1,6 @@
 from sqlmodel import SQLModel, Field
 class TempPickTelur(SQLModel, table=True):
-    id: int = Field(default=None, primary_key=True, in)
+    id: int = Field(default=None, primary_key=True)
     Tgl: str
     Dist: int
     Kandang: str

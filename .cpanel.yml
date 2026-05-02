@@ -1,0 +1,10 @@
+deployment:
+ tasks:
+ - source ./cpanel.conf
+
+  # Initialize and update Git submodules
+ - /usr/bin/git submodule sync --recursive
+ - /usr/bin/git submodule update --init --recursive
+ 
+  # Sync files to deployment path (excluding unnecessary files)
+ - /usr/bin/rsync -Paz --exclude='public/uploads' --exclude='public/storage' --exclude='storage/app' * $DEPLOYPATH --delete
